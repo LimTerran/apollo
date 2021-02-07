@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.ctrip.framework.apollo</groupId>
 		<artifactId>apollo</artifactId>
-		<version>1.7.0-SNAPSHOT</version>
+		<version>${revision}</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
@@ -28,10 +28,19 @@
 			<artifactId>apollo-openapi</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>test</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+		<!-- yml processing -->
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+		</dependency>
+		<!-- end of yml processing -->
 		<!-- JDK 1.8+ -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -49,6 +58,10 @@
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+		</dependency>
 		<!-- end of JDK 1.8+ -->
 		<!-- JDK 11+ -->
 		<dependency>
@@ -58,6 +71,11 @@
 		<!-- end of JDK 11+ -->
 
 		<!-- test -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
@@ -71,9 +89,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<executable>true</executable>
-				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
